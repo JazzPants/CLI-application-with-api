@@ -5,14 +5,13 @@ require 'active_record'
 require 'net/http'
 require 'open-uri'
 require 'json'
-
-require_relative '../lib/musicapi'
-require_relative '../lib/cli'
-require_relative '../lib/user'
+require 'bundler'
+require 'sqlite3'
+Bundler.require
 
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
-  database: 'db/user.sqlite',
+  database: 'db/users.sqlite',
 )
 
 sql = <<-SQL
@@ -23,3 +22,13 @@ username TEXT
 SQL
 
 ActiveRecord::Base.connection.execute(sql)
+
+class User < ActiveRecord::Base
+end
+p User.column_names
+
+p User.all
+
+require_relative '../lib/musicapi'
+require_relative '../lib/cli'
+require_relative '../lib/createuser'

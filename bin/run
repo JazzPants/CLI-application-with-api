@@ -3,20 +3,6 @@ require_relative '../config/environment.rb'
 
 #require relative environment
 
-ActiveRecord::Base.establish_connection(
-  adapter: 'sqlite3',
-  database: 'db/user.sqlite',
-)
-
-sql = <<-SQL
-CREATE TABLE IF NOT EXISTS users (
-id INTEGER PRIMARY KEY,
-username TEXT
-)
-SQL
-
-ActiveRecord::Base.connection.execute(sql)
-
 app = CLI.new
-
+p app.username
 app.start

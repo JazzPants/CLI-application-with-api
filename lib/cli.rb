@@ -6,6 +6,8 @@
 #initialize welcome to the app
 
 class CLI
+  attr_accessor :username
+
   def start
     puts 'Welcome to Music Lovers!'
 
@@ -15,7 +17,7 @@ class CLI
     start_menu_options
 
     #please enter your username to make a playlist
-    #username does not exist, would you like to create one?
+
     # if username
     #     user_menu_options
     # else
@@ -45,16 +47,38 @@ class CLI
     puts 'Please enter your username'
     input = gets.chomp
     #save user input to database
+    #username does not exist, would you like to create one?
   end
 
   def create_user
     puts 'Please enter a new username'
-    input = gets.chomp
-    puts "Do you want to use the username #{input}?"
+    usernameInput = gets.chomp
+    puts "Do you want to use the username #{usernameInput} y/n?"
+    yesNoInput = gets.chomp
+    yesNoInput == 'y' ? User.create(username: usernameInput) : start_menu
+    puts "User: #{usernameInput} created."
+    user_menu_options
   end
 
   def user_menu_options
+    puts 'Welcome to Music Lovers, '
     puts 'Please select an option'
-    puts "type '1' for "
+    puts "type '1' for artist search"
+    puts "type '2' for current playlists"
+    puts "type '3' to exit application."
+  end
+
+  def user_menu
+    input = gets.chomp
+    if input == '1'
+      enter_artist
+    elsif input == '2'
+      display_playlists
+    else
+      puts 'exiting application'
+      exit
+    end
   end
 end
+
+puts "A random number: #{rand(10)}"
