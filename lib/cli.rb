@@ -80,5 +80,3 @@ class CLI
     end
   end
 end
-
-puts "A random number: #{rand(10)}"

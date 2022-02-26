@@ -4,5 +4,5 @@ require_relative '../config/environment.rb'
 #require relative environment
 
 app = CLI.new
-p app.username
+# p app.username
 app.start

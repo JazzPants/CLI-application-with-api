@@ -3,7 +3,7 @@
 #make changes to database
 # require 'active_record'
 
-class CreateUser
-end
+# class CreateUser
+# end
 
-p 'activeuser.rb talking'
+# p 'activeuser.rb talking'
