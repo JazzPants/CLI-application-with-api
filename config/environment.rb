@@ -26,7 +26,8 @@ ActiveRecord::Base.establish_connection(
 # SQL
 # ActiveRecord::Base.connection.execute(sql)
 
-require_relative '../lib/musicapi'
+# require_relative '../lib/musicapi'
 require_relative '../lib/cli'
-require_relative '../lib/createuser'
-require_relative '../user.rb'
+# require_relative '../lib/createuser'
+require_relative '../lib/user'
+require_relative '../lib/playlist'

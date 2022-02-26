@@ -15,9 +15,6 @@ require 'sinatra/activerecord'
 # end
 
 # namespace :db do
-#   task :environment do
-#     require_relative './config/environment'
-#   end
 
 #   #   desc 'migrate changes to your database'
 #   #   task migrate: :environment do
@@ -30,8 +27,17 @@ require 'sinatra/activerecord'
 #     Pry.start
 #   end
 # end
+
 namespace :db do
+  task :environment do
+    require_relative './config/environment'
+  end
   task :load_config do
     require './config/environment.rb'
+  end
+
+  desc 'drop into the Pry console'
+  task console: :environment do
+    Pry.start
   end
 end
