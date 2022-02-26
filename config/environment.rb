@@ -29,4 +29,4 @@ ActiveRecord::Base.establish_connection(
 require_relative '../lib/musicapi'
 require_relative '../lib/cli'
 require_relative '../lib/createuser'
-require_relative '../user'
+require_relative '../user.rb'
